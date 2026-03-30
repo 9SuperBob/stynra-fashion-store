@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --canvas: #f7f3ee;
+  --ink: #171411;
+  --accent: #8a5a44;
+  --muted: #6f665e;
+  --line: rgba(23, 20, 17, 0.1);
+  font-family: "Segoe UI Variable", "Helvetica Neue", "Arial Nova", sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(138, 90, 68, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(23, 20, 17, 0.06), transparent 24%),
+    var(--canvas);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  .brand-mark {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  .section-eyebrow {
+    @apply text-xs uppercase tracking-[0.34em] text-black/45;
+  }
+
+  .section-title {
+    @apply text-4xl leading-tight text-[var(--ink)] sm:text-5xl lg:text-6xl;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--ink)] px-6 py-3 text-sm uppercase tracking-[0.24em] text-white transition hover:bg-[var(--accent)];
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/35 px-6 py-3 text-sm uppercase tracking-[0.24em] transition hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-white;
+  }
+
+  .surface-panel {
+    @apply rounded-[2rem] border border-white/45 bg-[color:rgba(255,255,255,0.72)] p-6 shadow-[0_20px_70px_rgba(23,20,17,0.08)] backdrop-blur-md sm:p-7;
+  }
+
+  .nav-link {
+    @apply transition duration-200 hover:text-[var(--ink)];
+  }
+
+  .product-tile {
+    @apply transition duration-300 hover:-translate-y-1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: rise-in 700ms ease-out both;
+}
+
+.reveal-delay {
+  animation: rise-in 700ms 180ms ease-out both;
+}
